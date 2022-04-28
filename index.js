@@ -21,8 +21,8 @@ generalMiddleware(app)
 // routes
 const userRoutes = require('./routes/user')
 userRoutes(app)
-const companyRoutes = require('./routes/company')
-companyRoutes(app)
+const noobinRoutes = require('./routes/noobin')
+noobinRoutes(app)
 
 
 if(process.env.NODE_ENV === 'production'){
