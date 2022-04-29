@@ -6,10 +6,10 @@ const {apiErrorHandler} = require('./errorHandling/errorHandler')
 //basic express setup
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 
 //database connection
-//to be done
+require('./models')
 
 //middleware
 const authMiddleware = require('./middleware/authMiddleware')
@@ -19,6 +19,8 @@ generalMiddleware(app)
 
 
 // routes
+const authRoutes = require('./routes/auth')
+authRoutes(app)
 const userRoutes = require('./routes/user')
 userRoutes(app)
 const noobinRoutes = require('./routes/noobin')

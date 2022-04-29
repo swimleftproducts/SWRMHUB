@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const userSchema = require('./userSchema')
-const companySchema = require('./companySchema')
+
 
 
 // get db string
@@ -12,15 +12,15 @@ useUnifiedTopology: true}
 ,(err) => {
     if(err){console.log(err)}
     else{
-        console.log('connected to DB')
+        console.log(`connected to ${process.env.NODE_ENV} DB`)
     }
 })
 
+
 const User = mongoose.model('User',userSchema)
-const Company = mongoose.model('Company',companySchema)
+
 
 
 module.exports={
 User,
-Company,
 }
