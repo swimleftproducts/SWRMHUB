@@ -1,10 +1,10 @@
-module.exports={
-  test(req,res,next){
-    res.send('hi there')
-    console.log('example route')
+module.exports = {
+  test(req, res, next) {
+    res.send('hi there');
+    console.log('example route');
   },
-  provision(req,res,next){
-    console.log("mac is :",req.params.mac)
-    res.send("thanks");
-  }
-}
+  provision(req, res, next) {
+    console.log('mac is :', req.params.mac);
+    res.send(`thank you ${req.params.mac}`);
+  },
+};
