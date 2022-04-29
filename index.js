@@ -19,6 +19,8 @@ generalMiddleware(app)
 
 
 // routes
+const setupRoutes = require('./routes/setup')
+setupRoutes(app)
 const authRoutes = require('./routes/auth')
 authRoutes(app)
 const userRoutes = require('./routes/user')
