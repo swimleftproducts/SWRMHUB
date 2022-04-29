@@ -8,7 +8,8 @@ module.exports = {
   test(req, res, next) {
     res.send('app started 4/29/22');
   },
-  async register(req, res, next) {
+  async register(req, res, next) { 
+    console.log("hit register route")
     const { email, name } = req.body;
     if (email === '' || name === '') {
       next(
