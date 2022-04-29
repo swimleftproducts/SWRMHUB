@@ -86,16 +86,49 @@ module.exports = {
       );
     }
   },
-  login(req, res, next) {
+  async login(req, res, next) {
+    const { email, password } = req.body;
 
-    res.send('hitloginroute');
+    passport.authenticate('local', function (err, user, info) {
+      if (err) {
+        return next(err);
+      }
+
+      if (!user) {
+        next(
+          ApiError.badCredentials(
+            'incorrect credentials',
+            'could not find one of username or password',
+            2002
+          )
+        );
+        return;
+      }
+
+      req.logIn(user, function (err) {
+        if (err) {
+          return next(err);
+        }
+
+        return res.json({
+          name: req.user.name,
+          authenticated: true,
+          id: req.user.id,
+        });
+      });
+    })(req, res, next);
   },
-  logout(req, res, next) {
-    res.send('hit logout route');
+  async logout(req, res, next) {
+    await req.logOut();
+    res.send({ authenticated: false });
   },
   isAuthenticated(req, res, next) {
-    res.send('hit authenticated route');
-  },
+    if (req.user) {
+      res.send({ name: req.user.name, id: req.user.id, authenticated: true });
+    } else {
+      res.send({ authenticated: false });
+    }
+  }
 
 };
 
