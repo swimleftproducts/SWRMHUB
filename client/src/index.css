@@ -34,7 +34,7 @@ button, input[type="submit"], input[type="reset"] {
   transform: translate(-50%, -50%);
   z-index: 10;
   width: 400px;
-  height: 400px;
+  height: 500px;
   border: 1px solid grey;
   background-color: rgba(50,50,50,.8);
   border-radius: 5px;
@@ -84,4 +84,27 @@ button, input[type="submit"], input[type="reset"] {
 }
 .landing-card-nav .register-btn{
   background-color: blue;
+}
+.landing-card .form-outline  {
+ color: white
+}
+
+.landing-card .form-outline input {
+  height: 10px;
+  font-size: .95rem;
+}
+
+.landing-card button{
+  color: white;
+  width: 48%;
+  height: 50px;
+  background-color: blue;
+  border-radius: 5px;
+}
+
+.error-text{
+  height:.8rem;
+  color: red;
+  font-size: .8rem;
+  text-align: end;
 }
