@@ -1,0 +1,1 @@
+Currently the express server serves the front end site. As a result you need to run npm run build in the client folder to update the build that is served by the site. 
