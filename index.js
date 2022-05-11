@@ -6,7 +6,7 @@ const {apiErrorHandler} = require('./errorHandling/errorHandler')
 //basic express setup
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 3001
+const port = process.env.PORT || 3000
 
 //database connection
 require('./models')
@@ -29,7 +29,7 @@ const noobinRoutes = require('./routes/noobin')
 noobinRoutes(app)
 
 
-if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'hub_dev'){
+if(process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'hub_dev'||process.env.NODE_ENV=='dev_cloud'){
   app.use(express.static('client/build'))
   app.get('/*',(req,res) => {
   res.sendFile(path.resolve(__dirname,"client","build","index.html"))        
