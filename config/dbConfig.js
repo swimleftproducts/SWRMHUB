@@ -7,7 +7,7 @@ module.exports={
         
       else if(process.env.NODE_ENV ==="dev_local"){
         console.log("Connecting to local dev db")
-        return `mongodb://${process.env.DBUNAMEDEVLOCAL}:${process.env.DBPWDDEVLOCAL}@localhost:27017/${process.env.DBNAMEDEVLOCAL}`
+        return `mongodb://localhost:27017/${process.env.DBNAMEDEVLOCAL}`
       }
       else if(process.env.NODE_ENV ==="hub_dev"){
           console.log("Connecting to hub local dev db")
